@@ -1,10 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>白白</title>
+    <meta charset="utf-8">
+    <title>小心心</title>
+    <!-- 引入 echarts.js -->
+    <script src="echarts.js"></script>
 </head>
 <body>
-	<h1><mark>白白最好看</mark></h1>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        var data = [];
+
+        for (var i = 0; i <= 100; i++) {
+            var theta = i / 100 * 360;
+            var r = 5 * (1 + Math.sin(theta / 180 * Math.PI));
+            data.push([r, theta]);
+        }
+
+        option = {
+            title: {},
+            legend: {},
+            polar: {},
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross'
+                }
+            },
+            angleAxis: {
+                type: 'value',
+                startAngle: 0
+            },
+            radiusAxis: {
+            },
+            series: [{
+                coordinateSystem: 'polar',
+                name: 'line',
+                type: 'line',
+                data: data
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
 </body>
 </html>
