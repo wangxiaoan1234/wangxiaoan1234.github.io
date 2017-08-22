@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bootstrap-fileinput</title>
+    <link rel="stylesheet" href="bootstrap-fileinput/css/fileinput.min.css">
+    <link rel="stylesheet" href="bootstrap-3.3.7/dist/css/bootstrap.min.css">
+    <link href="bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="row" style="margin-top: 20px">
+    <div class="col-md-6 col-md-offset-3">
+        <label class="control-label">默认样式：</label>
+        <input id="input-1" type="file" class="file">
+    </div>
+</div>
+
+<div class="row" style="margin-top: 20px">
+    <div class="col-md-6 col-md-offset-3">
+        <label class="control-label">隐藏上传按钮，预览任何格式文件：</label>
+        <input id="input-2" type="file">
+    </div>
+</div>
+
+<div class="row" style="margin-top: 20px">
+    <div class="col-md-6 col-md-offset-3">
+        <label class="control-label">直接通过HTML5属性初始化（禁用预览功能）：</label>
+        <input id = "input-id" type = "file" class = "file" data-show-preview="false" >
+    </div>
+</div>
+
+
+
+<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="bootstrap-fileinput/js/fileinput.js"></script>
+<script type="text/javascript" src="bootstrap-fileinput/js/locales/zh.js"></script>
+<script>
+    //使用默认值初始化方式
+    $("#input-1").fileinput();
+
+    //带配置项的初始化方式
+    $("#input-2").fileinput({
+        language: 'zh', //设置语言
+//        showUpload: false,//隐藏上传按钮
+        uploadUrl: 'http://localhost:8090/web/corp/user/upload.htm',
+        previewFileType: 'any'//预览任何格式文件
+    });
+</script>
+</body>
+</html>
