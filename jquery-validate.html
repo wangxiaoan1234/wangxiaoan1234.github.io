@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery-Validate-Demo</title>
+    <script type="text/javascript" src="https://wangxiaoan1234.github.io/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://wangxiaoan1234.github.io/jquery-validation-1.17.0/dist/jquery.validate.js"></script>
+    <script type="text/javascript" src="https://wangxiaoan1234.github.io/jquery-validation-1.17.0/dist/localization/messages_zh.js"></script>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+
+<form action="#" id="userForm" method="post">
+    用户名：<input type="text" name="name" id="name" autocomplete="off" >
+    <br><input type="submit" value="提交">
+</form>
+
+<script>
+    $(function () {
+        var validator = $("#userForm").validate({
+            debug: true,
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 2
+                }
+            },
+            messages: {
+                name: {
+                    required: "这个你必须得填╭(╯^╰)╮",
+                    minlength: "你太短了→_→"
+                }
+            }
+        });
+    })
+</script>
+</body>
+</html>
